@@ -29,6 +29,9 @@ class ScoreCrawler(BaseCrawler):
 
     def __init__(self):
         super().__init__()
+        
+        self.db_enabled = False  # 补上缺失的属性定义，默认不走数据库逻辑
+        
         self._first_logged = False
         self.export_json = parse_bool(os.getenv("SCORE_EXPORT_JSON", "false"), False)
         self.skip_existing = parse_bool(os.getenv("SCORE_SKIP_EXISTING", "true"), True)
