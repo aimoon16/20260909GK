@@ -103,7 +103,10 @@ class ScoreCrawler(BaseCrawler):
         )
         self.session.mount("https://", adapter)
         self.session.mount("http://", adapter)
-
+        
+    def now_str(self):
+        return time.time.now().strftime("%Y-%m-%d %H:%M:%S")
+        
     def build_worker_session(self):
         session = requests.Session()
         session.headers.update(self.headers)
