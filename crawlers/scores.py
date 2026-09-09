@@ -1,6 +1,7 @@
 import os
 import json
 import time
+import datetime
 import threading
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -105,7 +106,7 @@ class ScoreCrawler(BaseCrawler):
         self.session.mount("http://", adapter)
         
     def now_str(self):
-        return time.time.now().strftime("%Y-%m-%d %H:%M:%S")
+        return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
     def build_worker_session(self):
         session = requests.Session()
